@@ -1,0 +1,14 @@
+- config:
+    name: 验证正常调用接口能否查询标签
+
+- test:
+    name: 验证正常调用接口能否查询标签
+    testcase: testcases/开始开发/获取access_token/[001]验证正常调用接口能否正常获取token的值.yml
+
+- test:
+    name: get_tag
+    api: api/用户管理/用户标签管理/获取公众号已创建的标签.yml
+    variables:
+      tokenid: $tokenid
+    validate:
+      - contains: [content, tags]

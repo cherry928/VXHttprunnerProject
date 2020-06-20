@@ -1,0 +1,14 @@
+- config:
+    name: 验证正常调用接口能否获取用户信息
+
+- test:
+    name: 验证正常调用接口能否获取用户信息
+    testcase: testcases/开始开发/获取access_token/[001]验证正常调用接口能否正常获取token的值.yml
+
+- test:
+    name: get_user_remark
+    api: api/用户管理/获取用户基本信息/获取用户基本信息.yml
+    variables:
+      tokenid: $tokenid
+    validate:
+      - str_eq: [content.language, "zh_CN"]

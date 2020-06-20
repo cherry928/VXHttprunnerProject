@@ -1,0 +1,15 @@
+- config:
+    name: 验证正常调用接口能否删除标签
+
+- test:
+    name: 验证正常调用接口能否删除标签
+    testcase: testcases/开始开发/获取access_token/[001]验证正常调用接口能否正常获取token的值.yml
+
+- test:
+    name: delete_tag
+    api: api/用户管理/用户标签管理/删除标签.yml
+    variables:
+      tokenid: $tokenid
+      tagid: 163
+    validate:
+      - eq: [content.errcode, 0]

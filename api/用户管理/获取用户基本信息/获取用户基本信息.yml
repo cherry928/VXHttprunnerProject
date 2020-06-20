@@ -1,0 +1,11 @@
+name: get user remark
+base_url: ${ENV(URL)}
+request:
+  url: /cgi-bin/user/info
+  method: GET
+  params:
+    access_token: $tokenid
+    openid: "${ENV(openid)}"
+    lang: zh_CN
+validate:
+  - eq: ["status_code", 200]

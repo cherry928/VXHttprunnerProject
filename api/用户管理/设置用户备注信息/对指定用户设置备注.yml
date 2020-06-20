@@ -1,0 +1,13 @@
+name: update user remark
+base_url: ${ENV(URL)}
+request:
+  url: /cgi-bin/user/info/updateremark
+  method: POST
+  headers:
+    Content-Type: "application/json"
+  params:
+    access_token: $tokenid
+  json:
+    {openid: "${ENV(openid)}", remark: "花花"}
+validate:
+  - eq: ["status_code", 200]

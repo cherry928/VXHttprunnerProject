@@ -1,0 +1,13 @@
+name: update user tag
+base_url: ${ENV(URL)}
+request:
+  url: /cgi-bin/tags/update
+  method: POST
+  headers:
+    Content-Type: "application/json"
+  params:
+    access_token: $tokenid
+  json:
+    {   "tag" : {     "id" : $tag_id,     "name" : $tagname   } }
+validate:
+  - eq: ["status_code", 200]

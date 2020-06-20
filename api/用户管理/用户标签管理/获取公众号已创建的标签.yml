@@ -1,0 +1,9 @@
+name: get user tag
+base_url: ${ENV(URL)}
+request:
+  url: /cgi-bin/tags/get
+  method: GET
+  params:
+    access_token: $tokenid
+validate:
+  - eq: ["status_code", 200]

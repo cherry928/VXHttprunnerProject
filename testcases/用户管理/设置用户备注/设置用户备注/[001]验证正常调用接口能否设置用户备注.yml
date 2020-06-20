@@ -1,0 +1,14 @@
+- config:
+    name: 验证正常调用接口能否设置用户备注
+
+- test:
+    name: 验证正常调用接口能否设置用户备注
+    testcase: testcases/开始开发/获取access_token/[001]验证正常调用接口能否正常获取token的值.yml
+
+- test:
+    name: update user remark
+    api: api/用户管理/设置用户备注信息/对指定用户设置备注.yml
+    variables:
+      tokenid: $tokenid
+    validate:
+      - eq: [content.errcode, 0]

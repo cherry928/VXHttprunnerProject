@@ -1,0 +1,12 @@
+- config:
+    name: 验证正常调用接口能否正常获取token的值
+    export:
+      - tokenid
+
+- test:
+    name: 验证正常调用接口能否正常获取token的值
+    api: api/开始开发/获取Access token.yml
+    extract:
+      - tokenid: content.access_token
+    validate:
+      - contains: [content, access_token]

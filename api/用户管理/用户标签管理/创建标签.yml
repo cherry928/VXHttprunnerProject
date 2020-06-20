@@ -1,0 +1,13 @@
+name: create user tag
+base_url: ${ENV(URL)}
+request:
+  url: /cgi-bin/tags/create
+  method: POST
+  headers:
+    Content-Type: "application/json"
+  params:
+    access_token: $tokenid
+  json:
+    {   "tag":{        "name": $tagname }}
+validate:
+  - eq: ["status_code", 200]

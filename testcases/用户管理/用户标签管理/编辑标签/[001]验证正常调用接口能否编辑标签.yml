@@ -1,0 +1,18 @@
+- config:
+    name: 验证正常调用接口能否编辑标签
+    export:
+      - tag_name
+
+- test:
+    name: 验证正常调用接口能否编辑标签
+    testcase: testcases/开始开发/获取access_token/[001]验证正常调用接口能否正常获取token的值.yml
+
+- test:
+    name: create_tag
+    api: api/用户管理/用户标签管理/编辑标签.yml
+    variables:
+      tokenid: $tokenid
+      tag_id: ${ENV(update_tag_id)}
+      tagname: ${ENV(update_tag_name)}
+    validate:
+      - eq: [content.errcode, 0]
